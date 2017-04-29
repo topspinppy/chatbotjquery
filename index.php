@@ -33,7 +33,7 @@
 		$('#chatbot-submit').click(function() {
 			$('#chatbot-message').append('<div class ="question">'+$('#chatbot-input').val()+'</div>');
 			$.ajax({
-				url: "./test1.php",
+				url: "./test.php",
 				data: {
 					text: $('#chatbot-input').val()
 				},

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+
+    <title>Chat (by Pavel Komiagin) - Bootsnipp.com</title>
+    <link rel="stylesheet" type="text/css" href="T1.css">
+    <link rel="stylesheet" type="text/css" href="T2.1.css">
+
+</head>
+<body>
+      <div class="chat_window">
+        <div class="top_menu">
+          <div class="buttons">
+              <div class="button close">
+
+              </div>
+              <div class="button minimize">
+
+              </div>
+              <div class="button maximize">
+
+              </div>
+           </div>
+           <div class="title">
+             Chat
+           </div>
+         </div>
+      <ul class="messages">
+        <section id="textshow">
+
+        </section>
+      </ul>
+         <div class="bottom_wrapper clearfix">
+           <div class="message_input_wrapper">
+             <input type="text" class="message_input" id="chatbot-input" placeholder="Type your message here..." />
+           </div>
+        <div class="send_message">
+          <div class="icon">
+          </div>
+        <input type="button" id="chatbot-submit" class="text"  value="ตกลง">Send</div>
+        </div>
+      </div>
+      </div>
+          <div class="message_template">
+            <li class="message">
+              <div class="avatar">
+              </div>
+              <div class="text_wrapper">
+                <div class="text">
+                </div>
+              </div>
+            </li>
+          </div>
+</body>
+<script>
+	$(document).ready(function() {
+		$('#chatbot-submit').click(function() {
+			$('#textshow').append('<div class="from-me">'+ $('#chatbot-input').val()+'</div>'+'<div class="clear"></div>');
+			$.ajax({
+				url: "./test.php",
+				data: {
+					text: $('#chatbot-input').val()
+				},
+				type: 'POST',
+				success: function(xxx) { //ถ้าสำเร็จให้มาที่ Success
+					// console.log(xxx);
+					$('#chatbot-input').val('');
+							$('#textshow').append('<div class="from-them">'+xxx+'</div>');
+					}
+			});
+		});
+
+		$('#chatbot-input').keyup(function(e){
+			if(e.keyCode == 13)
+			{
+					$('#chatbot-submit').click();
+			}
+		});
+	})
+</script>
+</html>
