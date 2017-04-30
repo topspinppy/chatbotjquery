@@ -35,9 +35,8 @@
 		 else
 		 {
 			 echo json_encode([
-				 	'answer' => "ไม่รู้เหมือนกันจ้า ช่วยสอนฉัน   <a class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>คลิกสอนฉันสิ</a>",
+				 	'answer' => "ฉันไม่เข้าใจ มันคืออะไรเหรอ",
 					'addNew' => 1
-
 			]);
 
 		}

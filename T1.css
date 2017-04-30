@@ -21,7 +21,6 @@ body {
   background-color: #f8f8f8;
   overflow: hidden;
 }
-
 .top_menu {
   background-color: #fff;
   width: 100%;
@@ -54,11 +53,10 @@ body {
   color: #bcbdc0;
   font-size: 20px;
 }
-
 .messages {
   position: relative;
   list-style: none;
-  padding: 20px 10px 0 10px;
+  padding: 20px 10px 0 10px; /*20px 10px 0 10px*/
   margin: 0;
   height: 347px;
   overflow: scroll;
@@ -158,6 +156,7 @@ body {
   padding: 0 20px;
 }
 .bottom_wrapper .message_input_wrapper .message_input {
+  display: inline-block;
   border: none;
   height: 100%;
   box-sizing: border-box;
@@ -166,7 +165,7 @@ body {
   outline-width: 0;
   color: gray;
 }
-.bottom_wrapper .send_message {
+.bottom_wrapper .message_button{
   width: 140px;
   height: 50px;
   display: inline-block;
@@ -178,18 +177,20 @@ body {
   transition: all 0.2s linear;
   text-align: center;
   float: right;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 48px;
 }
-.bottom_wrapper .send_message:hover {
+.bottom_wrapper .message_button:hover {
   color: #a3d063;
   background-color: #fff;
 }
 .bottom_wrapper .send_message .text {
-  font-size: 18px;
+  /*font-size: 18px;
   font-weight: 300;
   display: inline-block;
-  line-height: 48px;
+  line-height: 48px;*/
 }
-
 .message_template {
   display: none;
 }

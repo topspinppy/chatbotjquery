@@ -5,20 +5,20 @@ body {
 }
 
 section {
-  max-width: 450px;
-  margin: 50px auto;
+  max-width: 700px;
+  margin: 0;  /*50px auto*/
 }
 section div {
-  max-width: 255px;
+  max-width: 700px; /*350*/
   word-wrap: break-word;
-  margin-bottom: 20px;
-  line-height: 24px;
+  margin-bottom: 10px; /*20*/
+  line-height: 24px; /*24*/
 }
 
 .clear {
   clear: both;
 }
-.from-me {
+/*.from-me {
   position: relative;
   padding: 10px 20px;
   color: white;
@@ -45,11 +45,34 @@ section div {
   right: -56px;
   width: 26px;
   height: 20px;
-  background: white;
+  background: #f8f8f8;
   border-bottom-left-radius: 10px;
   -webkit-transform: translate(-30px, -2px);
+}*/
+.userframe{
+  display: inline-block;
+  width:100%;
 }
-.from-them {
+.user{
+  display:inline-block;
+  float:right;
+  /*padding: 40px;*/
+}
+.user img{
+  position: relative;
+  padding-left:15px;
+  float:right;
+}
+.from-me {
+  position: relative;
+  max-width: 250px;
+  padding: 10px 20px;
+  color: white;
+  background: #0B93F6;
+  border-radius: 25px;
+  float: left;
+}
+/*.from-them {
   position: relative;
   padding: 10px 20px;
   background: #E5E5EA;
@@ -76,7 +99,29 @@ section div {
   left: 4px;
   width: 26px;
   height: 20px;
-  background: white;
+  background:  #f8f8f8;
   border-bottom-right-radius: 10px;
   -webkit-transform: translate(-30px, -2px);
+}*/
+.botframe{
+  display: inline-block;
+  width:100%;
+}
+.bot{
+  display:inline-block;
+  float:left;
+}
+.bot img{
+  padding-right:15px;
+  float:left;
+}
+.from-them {
+  position: relative;
+  max-width: 250px;
+  padding: 10px 20px;
+  background: #E5E5EA;
+  border-radius: 25px;
+  color: black;
+  float: right;
+
 }

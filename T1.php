@@ -36,7 +36,7 @@
               </div>
            </div>
            <div class="title">
-             Chat
+             <img src="img/Logo_00223.gif" width="96" height="54">
            </div>
          </div>
       <ul class="messages">
@@ -48,12 +48,9 @@
            <div class="message_input_wrapper">
              <input type="text" class="message_input" id="chatbot-input" placeholder="Type your message here..." />
            </div>
-        <div class="send_message">
-          <div class="icon">
-          </div>
-        <input type="button" id="chatbot-submit" class="text"  value="ตกลง">Send</div>
+
+        <input type="button" id="chatbot-submit" class="message_button"  value="Send">
         </div>
-      </div>
       </div>
           <div class="message_template">
             <li class="message">
@@ -71,7 +68,7 @@
               <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                   <h4 class="modal-title"><center><b><i>คุณต้องการสอนอะไรให้ฉัน?</i></b></center></h4>
                 </div>
 
@@ -95,7 +92,7 @@
                   <!-- </div> -->
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">คกลง</button>
+                  <button type="button" class="btn btn-primary">ตกลง</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
 
                 </div>
@@ -108,13 +105,30 @@
 
   var isAddNew = false;
   var recentQuestion = '';
-
+  //=========================================
+  $('#chatbot-submit').click(function () {
+    var textshow_Scrollbar = document.getElementById("textshow");
+    $('.messages').animate({scrollTop: textshow_Scrollbar.scrollHeight}, 800);
+    return false;
+  });
+  //=========================================
   // var obj = {
   //   addNew: 0
   // };
 		$('#chatbot-submit').click(function() {
-			$('#textshow').append('<div class="from-me">'+ $('#chatbot-input').val()+'</div>'+'<div class="clear"></div>');
+			//$('#textshow').append('<div class="from-me">'+ $('#chatbot-input').val()+'</div>'+'<div class="clear"></div>');
 
+      $('#textshow').append(
+        '<div class="userframe">'+
+        '<div class="user">'+
+          '<div class="from-me">'+
+            $('#chatbot-input').val()+
+          '</div>'+
+          '<img src="img/0000133Q.gif">'+
+        '</div>'+
+        '</div>'+
+        '<div class="clear"></div>');
+        //console.log($('#chatbot-input').val().length);
       if(isAddNew === false) {
         $.ajax({
   				url: "./test1.php",
@@ -130,8 +144,16 @@
             // obj.recentQuestion = $('#chatbot-input').val();
             // console.log(result);
   					$('#chatbot-input').val('');
-  							$('#textshow').append('<div class="from-them">'+result.answer+'</div>');
-
+  							//$('#textshow').append('<div class="from-them">'+result.answer+'</div>');
+                $('#textshow').append(
+                  '<div class="botframe">'+
+                  '<div class="bot">'+
+                    '<div class="from-them">'+
+                      result.answer+
+                    '</div>'+
+                    '<img src="img/00000001113.gif">'+
+                  '</div>'+
+                  '</div>');
   					}
   			});
       } else {
@@ -146,7 +168,14 @@
             $('#chatbot-input').val('');
             isAddNew = false;
             recentQuestion = '';
-            $('#textshow').append('<div class="from-them">สอนเสร็จแล้วนะ</div>');
+            //$('#textshow').append('<div class="from-them">สอนเสร็จแล้วนะ</div>');
+            $('#textshow').append(
+              '<div class="botframe">'+
+              '<div class="bot">'+
+                '<div class="from-them">ฉันเข้าใจแล้วล่ะ</div>'+
+                '<img src="img/00000001113.gif">'+
+              '</div>'+
+              '</div>');
           }
   			});
       }
