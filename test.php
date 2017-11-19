@@ -26,3 +26,7 @@ mysqli_set_charset($conn, "utf8");
 			?>
 	</body>
 </html>
+
+<?php 
+$a = "nongnan";
+?>
