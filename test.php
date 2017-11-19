@@ -12,7 +12,7 @@
 				 $text = $_POST['text'];
 			   $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 mysqli_set_charset($conn, "utf8");
-			   $sql  = "SELECT * FROM ans_bot Where firstanswer = '".$text."'";
+			   $sql  = "SELECT * FROM ans_bots Where firstanswer = '".$text."'";
 
 			   $query = mysqli_query($conn,$sql) or die("Error: ".mysqli_error($conn));
 				 $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
